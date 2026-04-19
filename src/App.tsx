@@ -111,7 +111,7 @@ function App() {
       <header className="top-nav">
         <div className="top-nav-inner">
           <div className="nav-logo">
-            <img src="/EDEINA_vector_horizontal.svg" alt="EDEINA" />
+            <img src="./EDEINA_vector_horizontal.svg" alt="EDEINA" />
           </div>
           <nav className="nav-links">
             <span className={`nav-link ${activeTab === 'dough' ? 'active' : ''}`} onClick={() => setActiveTab('dough')}>Dough</span>
@@ -121,7 +121,7 @@ function App() {
               <span className="material-symbols-outlined" style={{ color: showPrices ? '#D9A043' : '#192F4D', fontSize: '1.25rem' }}>payments</span>
             </button>
             {showPrices && (
-              <select value={currency} onChange={(e) => setCurrency(e.target.value as any)} style={{ background: '#D9A043', border: 'none', borderRadius: '6px', padding: '6px 10px', fontSize: '0.8rem', fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: '700', color: '#192F4D', cursor: 'pointer', outline: 'none' }}>
+              <select value={currency} onChange={(e) => setCurrency(e.target.value as any)} style={{ background: '#D9A043', border: 'none', borderRadius: '6px', padding: '6px 10px', fontSize: '0.8rem', fontFamily: "'Dallas PS', sans-serif", fontWeight: '700', color: '#192F4D', cursor: 'pointer', outline: 'none' }}>
                 <option value="GBP">£/kg</option>
                 <option value="USD">$/kg</option>
                 <option value="EUR">€/kg</option>
@@ -152,8 +152,8 @@ function App() {
               <button className="action-btn" onClick={() => setShareDropdownOpen(!shareDropdownOpen)}><span className="material-symbols-outlined">share</span><span>Share</span><span className="material-symbols-outlined" style={{ fontSize: '1rem' }}>arrow_drop_down</span></button>
               {shareDropdownOpen && (
                 <div style={{ position: 'absolute', top: '100%', left: 0, marginTop: '4px', background: '#fff', border: '1px solid #E0DDD6', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.15)', zIndex: 100, minWidth: '180px' }}>
-                  <button onClick={handleShare} style={{ width: '100%', padding: '10px 16px', border: 'none', background: 'none', textAlign: 'left', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px', fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: '600', fontSize: '0.875rem', color: '#192F4D' }}><span className="material-symbols-outlined">content_copy</span>Copy Text</button>
-                  <button onClick={handleShareURL} style={{ width: '100%', padding: '10px 16px', border: 'none', background: 'none', textAlign: 'left', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px', fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: '600', fontSize: '0.875rem', color: '#192F4D' }}><span className="material-symbols-outlined">link</span>Copy URL</button>
+                  <button onClick={handleShare} style={{ width: '100%', padding: '10px 16px', border: 'none', background: 'none', textAlign: 'left', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px', fontFamily: "'Dallas PS', sans-serif", fontWeight: '600', fontSize: '0.875rem', color: '#192F4D' }}><span className="material-symbols-outlined">content_copy</span>Copy Text</button>
+                  <button onClick={handleShareURL} style={{ width: '100%', padding: '10px 16px', border: 'none', background: 'none', textAlign: 'left', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px', fontFamily: "'Dallas PS', sans-serif", fontWeight: '600', fontSize: '0.875rem', color: '#192F4D' }}><span className="material-symbols-outlined">link</span>Copy URL</button>
                 </div>
               )}
             </div>
@@ -185,7 +185,7 @@ function App() {
                           <span className="ingredient-name" style={{ fontWeight: '700', fontSize: '1.1rem' }}>
                             {ingredient.name}
                           </span>
-                          <span onClick={() => { const types = ['flour', 'liquid', 'salt', 'fat', 'extras'] as const; const idx = types.indexOf(ingredient.type); doughCalc.updateIngredient(ingredient.id, 'type', types[(idx + 1) % types.length]) }} style={{ cursor: 'pointer', background: typeColors[ingredient.type], color: '#fff', padding: '2px 10px', borderRadius: '12px', fontSize: '0.7rem', fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: '600', textTransform: 'uppercase', display: 'inline-block', marginTop: '4px' }}>{ingredient.type}</span>
+                          <span onClick={() => { const types = ['flour', 'liquid', 'salt', 'fat', 'extras'] as const; const idx = types.indexOf(ingredient.type); doughCalc.updateIngredient(ingredient.id, 'type', types[(idx + 1) % types.length]) }} style={{ cursor: 'pointer', background: typeColors[ingredient.type], color: '#fff', padding: '2px 10px', borderRadius: '12px', fontSize: '0.7rem', fontFamily: "'Dallas PS', sans-serif", fontWeight: '600', textTransform: 'uppercase', display: 'inline-block', marginTop: '4px' }}>{ingredient.type}</span>
                         </label>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap', justifyContent: 'flex-end' }}>
                           <div className="ingredient-input-wrapper">
@@ -194,7 +194,7 @@ function App() {
                           </div>
                           {doughCalc.showPrices && (
                             <div className="ingredient-input-wrapper" style={{ width: '5rem' }}>
-                              <span style={{ position: 'absolute', left: '0.5rem', fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: '700', fontSize: '0.65rem', color: '#D9A043', pointerEvents: 'none' }}>{currencySymbols[currency]}/kg</span>
+                              <span style={{ position: 'absolute', left: '0.5rem', fontFamily: "'Dallas PS', sans-serif", fontWeight: '700', fontSize: '0.65rem', color: '#D9A043', pointerEvents: 'none' }}>{currencySymbols[currency]}/kg</span>
                               <input className="ingredient-input" style={{ width: '100%', paddingLeft: '1.1rem' }} type="number" value={ingredient.pricePerKg} min={0} step={0.1} placeholder="0" onChange={(e) => doughCalc.updateIngredient(ingredient.id, 'pricePerKg', parseFloat(e.target.value) || 0)} />
                             </div>
                           )}
@@ -216,7 +216,7 @@ function App() {
                         </div>
                         <div className="w-28">
                           <label className="block text-xs font-bold uppercase tracking-widest text-[#4A5B73] mb-1">Type</label>
-                          <select value={doughCalc.newIngredient.type} onChange={(e) => doughCalc.setNewIngredient({ ...doughCalc.newIngredient, type: e.target.value as any })} style={{ width: '100%', background: '#fff', border: '1px solid #E0DDD6', borderRadius: '4px', padding: '8px', fontSize: '0.875rem', fontFamily: "'Plus Jakarta Sans', sans-serif", color: '#192F4D' }}>
+                          <select value={doughCalc.newIngredient.type} onChange={(e) => doughCalc.setNewIngredient({ ...doughCalc.newIngredient, type: e.target.value as any })} style={{ width: '100%', background: '#fff', border: '1px solid #E0DDD6', borderRadius: '4px', padding: '8px', fontSize: '0.875rem', fontFamily: "'Dallas PS', sans-serif", color: '#192F4D' }}>
                             <option value="flour">Flour</option><option value="liquid">Liquid</option><option value="salt">Salt</option><option value="fat">Fat</option><option value="extras">Extras</option>
                           </select>
                         </div>
@@ -233,8 +233,8 @@ function App() {
               </div>
               <div style={{ marginTop: '1.5rem', background: '#F4F1EA', border: '2px solid #192F4D', borderRadius: '12px', padding: '1.5rem', boxShadow: '4px 4px 0 #192F4D' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem' }}>
-                  <h3 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: '800', fontSize: '1.5rem', color: '#192F4D', margin: 0 }}>Recipe</h3>
-                  <span style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: '600', fontSize: '0.875rem', color: '#4A5B73', background: '#fff', padding: '4px 12px', borderRadius: '20px', border: '1px solid #E0DDD6' }}>{doughCalc.numBalls} × {doughCalc.ballWeight}g</span>
+                  <h3 style={{ fontFamily: "'Dallas PS', sans-serif", fontWeight: '800', fontSize: '1.5rem', color: '#192F4D', margin: 0 }}>Recipe</h3>
+                  <span style={{ fontFamily: "'Dallas PS', sans-serif", fontWeight: '600', fontSize: '0.875rem', color: '#4A5B73', background: '#fff', padding: '4px 12px', borderRadius: '20px', border: '1px solid #E0DDD6' }}>{doughCalc.numBalls} × {doughCalc.ballWeight}g</span>
                 </div>
                 <div className="space-y-1">
                   {doughCalc.ingredients.map((ingredient) => {
@@ -243,26 +243,26 @@ function App() {
                     return (
                       <div key={ingredient.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0.5rem 0', borderBottom: '1px dashed #E0DDD6' }}>
                         <div>
-                          <span style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: '700', fontSize: '1rem', color: '#192F4D' }}>{ingredient.name}</span>
-                          <span style={{ marginLeft: '8px', fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: '500', fontSize: '0.85rem', color: '#D9A043' }}>({pct}%)</span>
+                          <span style={{ fontFamily: "'Dallas PS', sans-serif", fontWeight: '700', fontSize: '1rem', color: '#192F4D' }}>{ingredient.name}</span>
+                          <span style={{ marginLeft: '8px', fontFamily: "'Dallas PS', sans-serif", fontWeight: '500', fontSize: '0.85rem', color: '#D9A043' }}>({pct}%)</span>
                         </div>
-                        <span style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: '700', fontSize: '1rem', color: '#192F4D' }}>{scaledWeight}g</span>
+                        <span style={{ fontFamily: "'Dallas PS', sans-serif", fontWeight: '700', fontSize: '1rem', color: '#192F4D' }}>{scaledWeight}g</span>
                       </div>
                     )
                   })}
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1rem 0 0.5rem', marginTop: '0.5rem', borderTop: '2px solid #192F4D' }}>
-                    <span style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: '900', fontSize: '1.25rem', color: '#192F4D' }}>Total</span>
+                    <span style={{ fontFamily: "'Dallas PS', sans-serif", fontWeight: '900', fontSize: '1.25rem', color: '#192F4D' }}>Total</span>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                      <span style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: '900', fontSize: '1.25rem', color: '#192F4D' }}>{doughCalc.targetOutput}g</span>
-                      {doughCalc.showPrices && <span style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: '700', fontSize: '1rem', color: '#D9A043' }}>{doughCalc.formatPrice(doughCalc.totalCost)}</span>}
+                      <span style={{ fontFamily: "'Dallas PS', sans-serif", fontWeight: '900', fontSize: '1.25rem', color: '#192F4D' }}>{doughCalc.targetOutput}g</span>
+                      {doughCalc.showPrices && <span style={{ fontFamily: "'Dallas PS', sans-serif", fontWeight: '700', fontSize: '1rem', color: '#D9A043' }}>{doughCalc.formatPrice(doughCalc.totalCost)}</span>}
                     </div>
                   </div>
                 </div>
                 <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem', paddingTop: '1rem', borderTop: '1px dashed #E0DDD6', flexWrap: 'wrap' }}>
-                  <span style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: '600', fontSize: '0.85rem', color: '#4A5B73' }}>Hydration: <strong style={{ color: '#192F4D' }}>{doughCalc.hydration.toFixed(1)}%</strong></span>
-                  <span style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: '600', fontSize: '0.85rem', color: '#4A5B73' }}>Salt: <strong style={{ color: '#192F4D' }}>{doughCalc.saltPercent.toFixed(1)}%</strong></span>
-                  <span style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: '600', fontSize: '0.85rem', color: '#4A5B73' }}>Fat: <strong style={{ color: '#192F4D' }}>{doughCalc.oilPercent.toFixed(1)}%</strong></span>
-                  <span style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: '600', fontSize: '0.85rem', color: '#4A5B73' }}>Extras: <strong style={{ color: '#192F4D' }}>{doughCalc.extrasPercent.toFixed(1)}%</strong></span>
+                  <span style={{ fontFamily: "'Dallas PS', sans-serif", fontWeight: '600', fontSize: '0.85rem', color: '#4A5B73' }}>Hydration: <strong style={{ color: '#192F4D' }}>{doughCalc.hydration.toFixed(1)}%</strong></span>
+                  <span style={{ fontFamily: "'Dallas PS', sans-serif", fontWeight: '600', fontSize: '0.85rem', color: '#4A5B73' }}>Salt: <strong style={{ color: '#192F4D' }}>{doughCalc.saltPercent.toFixed(1)}%</strong></span>
+                  <span style={{ fontFamily: "'Dallas PS', sans-serif", fontWeight: '600', fontSize: '0.85rem', color: '#4A5B73' }}>Fat: <strong style={{ color: '#192F4D' }}>{doughCalc.oilPercent.toFixed(1)}%</strong></span>
+                  <span style={{ fontFamily: "'Dallas PS', sans-serif", fontWeight: '600', fontSize: '0.85rem', color: '#4A5B73' }}>Extras: <strong style={{ color: '#192F4D' }}>{doughCalc.extrasPercent.toFixed(1)}%</strong></span>
                 </div>
               </div>
             </div>
@@ -315,7 +315,7 @@ function App() {
             {doughCalc.servingsMismatch && (
               <div style={{ background: '#FFF3E0', border: '1px solid #FF9800', borderRadius: '8px', padding: '0.75rem 1rem', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                 <span className="material-symbols-outlined" style={{ color: '#FF9800', fontSize: '1.25rem' }}>warning</span>
-                <span style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: '600', color: '#E65100', fontSize: '0.875rem' }}>Topping servings ({doughCalc.totalToppingServings}) don't match dough balls ({doughCalc.numBalls})</span>
+                <span style={{ fontFamily: "'Dallas PS', sans-serif", fontWeight: '600', color: '#E65100', fontSize: '0.875rem' }}>Topping servings ({doughCalc.totalToppingServings}) don't match dough balls ({doughCalc.numBalls})</span>
               </div>
             )}
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1rem', marginBottom: '1.5rem' }}>
@@ -326,8 +326,8 @@ function App() {
                       <span className="material-symbols-outlined" style={{ fontSize: '1.5rem', color: doughCalc.expandedMenuItemIds.includes(menuItem.id) ? '#192F4D' : '#fff' }}>{menuItem.icon}</span>
                     </div>
                     <div>
-                      <h4 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: '700', fontSize: '1rem', color: doughCalc.expandedMenuItemIds.includes(menuItem.id) ? '#fff' : '#192F4D', margin: 0 }}>{menuItem.name}</h4>
-                      <span style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: '600', fontSize: '0.875rem', color: doughCalc.expandedMenuItemIds.includes(menuItem.id) ? '#D9A043' : '#4A5B73' }}>{menuItem.numServings} servings</span>
+                      <h4 style={{ fontFamily: "'Dallas PS', sans-serif", fontWeight: '700', fontSize: '1rem', color: doughCalc.expandedMenuItemIds.includes(menuItem.id) ? '#fff' : '#192F4D', margin: 0 }}>{menuItem.name}</h4>
+                      <span style={{ fontFamily: "'Dallas PS', sans-serif", fontWeight: '600', fontSize: '0.875rem', color: doughCalc.expandedMenuItemIds.includes(menuItem.id) ? '#D9A043' : '#4A5B73' }}>{menuItem.numServings} servings</span>
                     </div>
                   </div>
                   {doughCalc.expandedMenuItemIds.includes(menuItem.id) && (
@@ -336,7 +336,7 @@ function App() {
                         <label style={{ fontSize: '0.75rem', color: '#D9A043', textTransform: 'uppercase', fontWeight: '700' }}>Number of Servings</label>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginTop: '0.25rem' }}>
                           <button onClick={(e) => { e.stopPropagation(); doughCalc.updateMenuItemServings(menuItem.id, Math.max(1, menuItem.numServings - 1)) }} style={{ background: '#fff', border: 'none', borderRadius: '4px', padding: '4px 8px', cursor: 'pointer' }}><span className="material-symbols-outlined" style={{ fontSize: '1rem', color: '#192F4D' }}>remove</span></button>
-                          <input type="number" value={menuItem.numServings} onChange={(e) => { e.stopPropagation(); doughCalc.updateMenuItemServings(menuItem.id, parseInt(e.target.value) || 1) }} onClick={(e) => e.stopPropagation()} style={{ width: '60px', textAlign: 'center', background: '#fff', border: '1px solid #E0DDD6', borderRadius: '4px', padding: '4px', fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: '700', fontSize: '1rem' }} />
+                          <input type="number" value={menuItem.numServings} onChange={(e) => { e.stopPropagation(); doughCalc.updateMenuItemServings(menuItem.id, parseInt(e.target.value) || 1) }} onClick={(e) => e.stopPropagation()} style={{ width: '60px', textAlign: 'center', background: '#fff', border: '1px solid #E0DDD6', borderRadius: '4px', padding: '4px', fontFamily: "'Dallas PS', sans-serif", fontWeight: '700', fontSize: '1rem' }} />
                           <button onClick={(e) => { e.stopPropagation(); doughCalc.updateMenuItemServings(menuItem.id, menuItem.numServings + 1) }} style={{ background: '#fff', border: 'none', borderRadius: '4px', padding: '4px 8px', cursor: 'pointer' }}><span className="material-symbols-outlined" style={{ fontSize: '1rem', color: '#192F4D' }}>add</span></button>
                         </div>
                       </div>
@@ -380,14 +380,14 @@ function App() {
             {doughCalc.showAddMenuItemForm && (
               <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 100 }}>
                 <div style={{ background: '#F4F1EA', borderRadius: '12px', padding: '2rem', maxWidth: '400px', width: '90%', border: '2px solid #192F4D' }}>
-                  <h3 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: '900', fontSize: '1.5rem', color: '#192F4D', marginBottom: '1rem' }}>Add Menu Item</h3>
+                  <h3 style={{ fontFamily: "'Dallas PS', sans-serif", fontWeight: '900', fontSize: '1.5rem', color: '#192F4D', marginBottom: '1rem' }}>Add Menu Item</h3>
                   <div style={{ marginBottom: '1rem' }}>
                     <label style={{ fontSize: '0.75rem', color: '#4A5B73', textTransform: 'uppercase', fontWeight: '700' }}>Name</label>
-                    <input type="text" value={doughCalc.newMenuItem.name} onChange={(e) => doughCalc.setNewMenuItem({ ...doughCalc.newMenuItem, name: e.target.value })} style={{ width: '100%', background: '#fff', border: '1px solid #E0DDD6', borderRadius: '8px', padding: '12px', fontSize: '1rem', fontFamily: "'Plus Jakarta Sans', sans-serif" }} placeholder="Menu Item Name" />
+                    <input type="text" value={doughCalc.newMenuItem.name} onChange={(e) => doughCalc.setNewMenuItem({ ...doughCalc.newMenuItem, name: e.target.value })} style={{ width: '100%', background: '#fff', border: '1px solid #E0DDD6', borderRadius: '8px', padding: '12px', fontSize: '1rem', fontFamily: "'Dallas PS', sans-serif" }} placeholder="Menu Item Name" />
                   </div>
                   <div style={{ marginBottom: '1rem' }}>
                     <label style={{ fontSize: '0.75rem', color: '#4A5B73', textTransform: 'uppercase', fontWeight: '700' }}>Icon</label>
-                    <select value={doughCalc.newMenuItem.icon} onChange={(e) => doughCalc.setNewMenuItem({ ...doughCalc.newMenuItem, icon: e.target.value })} style={{ width: '100%', background: '#fff', border: '1px solid #E0DDD6', borderRadius: '8px', padding: '12px', fontSize: '1rem', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                    <select value={doughCalc.newMenuItem.icon} onChange={(e) => doughCalc.setNewMenuItem({ ...doughCalc.newMenuItem, icon: e.target.value })} style={{ width: '100%', background: '#fff', border: '1px solid #E0DDD6', borderRadius: '8px', padding: '12px', fontSize: '1rem', fontFamily: "'Dallas PS', sans-serif" }}>
                       <option value="grass">Grass</option><option value="eco">Leaf</option><option value="egg_alt">Cheese</option><option value="restaurant">Meat</option><option value="cake">Sweet</option><option value="local_pizza">Pizza</option><option value="local_fire_department">Spicy</option><option value="spa">Herbs</option><option value="free_breakfast">Breakfast</option><option value="nutrition">Fruit</option><option value="bakery_dining">Bread</option><option value="lunch_dining">Sandwich</option><option value="icecream">Frozen</option><option value="set_meal">Meal</option>
                     </select>
                   </div>
@@ -405,18 +405,18 @@ function App() {
         {activeTab === 'summary' && (
           <div style={{ maxWidth: '80rem', margin: '0 auto', padding: '0 1.5rem' }}>
             <div style={{ background: '#F4F1EA', border: '2px solid #192F4D', borderRadius: '12px', padding: '1.5rem', boxShadow: '4px 4px 0 #192F4D' }}>
-              <h3 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: '900', fontSize: '1.5rem', color: '#192F4D', marginBottom: '1rem' }}>Summary & Shopping List</h3>
+              <h3 style={{ fontFamily: "'Dallas PS', sans-serif", fontWeight: '900', fontSize: '1.5rem', color: '#192F4D', marginBottom: '1rem' }}>Summary & Shopping List</h3>
               <div style={{ marginBottom: '1.5rem' }}>
                 <h4 style={{ fontSize: '0.75rem', color: '#4A5B73', textTransform: 'uppercase', fontWeight: '700', marginBottom: '0.5rem' }}>Production Overview</h4>
                 <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
                   <div style={{ background: '#fff', padding: '0.75rem 1rem', borderRadius: '8px', border: '1px solid #E0DDD6' }}>
                     <span style={{ color: '#4A5B73', fontSize: '0.75rem' }}>Dough</span>
-                    <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: '700', fontSize: '1.25rem', color: '#192F4D' }}>{doughCalc.numBalls} balls</p>
+                    <p style={{ fontFamily: "'Dallas PS', sans-serif", fontWeight: '700', fontSize: '1.25rem', color: '#192F4D' }}>{doughCalc.numBalls} balls</p>
                   </div>
                   {doughCalc.menuItems.filter(m => m.numServings > 0).map(item => (
                     <div key={item.id} style={{ background: '#fff', padding: '0.75rem 1rem', borderRadius: '8px', border: '1px solid #E0DDD6', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                       <span className="material-symbols-outlined" style={{ color: '#D9A043', fontSize: '1.25rem' }}>{item.icon}</span>
-                      <div><span style={{ color: '#4A5B73', fontSize: '0.75rem' }}>{item.name}</span><p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: '700', fontSize: '1.25rem', color: '#192F4D' }}>{item.numServings}</p></div>
+                      <div><span style={{ color: '#4A5B73', fontSize: '0.75rem' }}>{item.name}</span><p style={{ fontFamily: "'Dallas PS', sans-serif", fontWeight: '700', fontSize: '1.25rem', color: '#192F4D' }}>{item.numServings}</p></div>
                     </div>
                   ))}
                 </div>
@@ -425,26 +425,26 @@ function App() {
                 <h4 style={{ fontSize: '0.75rem', color: '#4A5B73', textTransform: 'uppercase', fontWeight: '700', marginBottom: '0.5rem' }}>Combined Ingredients (Shopping List)</h4>
                 <table style={{ width: '100%', borderCollapse: 'collapse', background: '#fff', borderRadius: '8px', overflow: 'hidden' }}>
                   <thead><tr style={{ background: '#192F4D' }}>
-                    <th style={{ padding: '0.75rem', textAlign: 'left', color: '#fff', fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: '700', fontSize: '0.75rem' }}>Ingredient</th>
-                    <th style={{ padding: '0.75rem', textAlign: 'right', color: '#fff', fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: '700', fontSize: '0.75rem' }}>Total Amount</th>
-                    {doughCalc.showPrices && <th style={{ padding: '0.75rem', textAlign: 'right', color: '#fff', fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: '700', fontSize: '0.75rem' }}>Cost</th>}
+                    <th style={{ padding: '0.75rem', textAlign: 'left', color: '#fff', fontFamily: "'Dallas PS', sans-serif", fontWeight: '700', fontSize: '0.75rem' }}>Ingredient</th>
+                    <th style={{ padding: '0.75rem', textAlign: 'right', color: '#fff', fontFamily: "'Dallas PS', sans-serif", fontWeight: '700', fontSize: '0.75rem' }}>Total Amount</th>
+                    {doughCalc.showPrices && <th style={{ padding: '0.75rem', textAlign: 'right', color: '#fff', fontFamily: "'Dallas PS', sans-serif", fontWeight: '700', fontSize: '0.75rem' }}>Cost</th>}
                   </tr></thead>
                   <tbody>
                     {Object.entries(doughCalc.allIngredientsSummary).map(([name, data]) => (
                       <tr key={name} style={{ borderBottom: '1px solid #E0DDD6' }}>
-                        <td style={{ padding: '0.75rem', color: '#192F4D', fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: '600' }}>{name}</td>
-                        <td style={{ padding: '0.75rem', textAlign: 'right', color: '#192F4D', fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: '700' }}>{Math.round(data.weight)}g</td>
-                        {doughCalc.showPrices && <td style={{ padding: '0.75rem', textAlign: 'right', color: '#D9A043', fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: '700' }}>{doughCalc.formatPrice(data.cost)}</td>}
+                        <td style={{ padding: '0.75rem', color: '#192F4D', fontFamily: "'Dallas PS', sans-serif", fontWeight: '600' }}>{name}</td>
+                        <td style={{ padding: '0.75rem', textAlign: 'right', color: '#192F4D', fontFamily: "'Dallas PS', sans-serif", fontWeight: '700' }}>{Math.round(data.weight)}g</td>
+                        {doughCalc.showPrices && <td style={{ padding: '0.75rem', textAlign: 'right', color: '#D9A043', fontFamily: "'Dallas PS', sans-serif", fontWeight: '700' }}>{doughCalc.formatPrice(data.cost)}</td>}
                       </tr>
                     ))}
                   </tbody>
                 </table>
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '1rem', padding: '1rem', background: '#192F4D', borderRadius: '8px' }}>
-                <span style={{ color: '#fff', fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: '900', fontSize: '1rem' }}>Grand Total</span>
+                <span style={{ color: '#fff', fontFamily: "'Dallas PS', sans-serif", fontWeight: '900', fontSize: '1rem' }}>Grand Total</span>
                 <div style={{ display: 'flex', gap: '1.5rem' }}>
-                  <span style={{ color: '#fff', fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: '700' }}>{Object.values(doughCalc.allIngredientsSummary).reduce((sum, i) => sum + i.weight, 0)}g</span>
-                  {doughCalc.showPrices && <span style={{ color: '#D9A043', fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: '900', fontSize: '1rem' }}>{doughCalc.formatPrice(Object.values(doughCalc.allIngredientsSummary).reduce((sum, i) => sum + i.cost, 0))}</span>}
+                  <span style={{ color: '#fff', fontFamily: "'Dallas PS', sans-serif", fontWeight: '700' }}>{Object.values(doughCalc.allIngredientsSummary).reduce((sum, i) => sum + i.weight, 0)}g</span>
+                  {doughCalc.showPrices && <span style={{ color: '#D9A043', fontFamily: "'Dallas PS', sans-serif", fontWeight: '900', fontSize: '1rem' }}>{doughCalc.formatPrice(Object.values(doughCalc.allIngredientsSummary).reduce((sum, i) => sum + i.cost, 0))}</span>}
                 </div>
               </div>
               <div style={{ borderTop: '2px solid #192F4D', paddingTop: '1rem', marginTop: '1rem' }}>
@@ -484,7 +484,7 @@ function App() {
         <div style={{
           position: 'fixed', bottom: '5rem', left: '50%', transform: 'translateX(-50%)',
           background: '#192F4D', color: '#fff', padding: '0.75rem 1.5rem',
-          borderRadius: '8px', fontFamily: "'Plus Jakarta Sans', sans-serif",
+          borderRadius: '8px', fontFamily: "'Dallas PS', sans-serif",
           fontWeight: '600', fontSize: '0.875rem', zIndex: 200,
           boxShadow: '0 4px 12px rgba(0,0,0,0.3)', display: 'flex',
           alignItems: 'center', gap: '0.5rem',

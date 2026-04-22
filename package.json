@@ -3,24 +3,22 @@
   "version": "2.0.0",
   "description": "EDEINA Bakery Dough Calculator - React Migration",
   "type": "commonjs",
-  "homepage": "https://crispyastrologer.github.io/edeinaCalculator",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "preview": "vite preview"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/crispyastrologer/edeinaCalculator.git"
+    "url": "git+https://github.com/crispyastrologer/doughCalculator.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/crispyastrologer/edeinaCalculator/issues"
+    "url": "https://github.com/crispyastrologer/doughCalculator/issues"
   },
+  "homepage": "https://github.com/crispyastrologer/doughCalculator#readme",
   "dependencies": {
     "react": "^19.2.5",
     "react-dom": "^19.2.5"
@@ -31,7 +29,6 @@
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.1",
     "autoprefixer": "^10.5.0",
-    "gh-pages": "^6.3.0",
     "postcss": "^8.5.10",
     "tailwindcss": "^4.2.2",
     "typescript": "^6.0.3",

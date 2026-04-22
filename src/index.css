@@ -1,25 +1,5 @@
 @import "tailwindcss";
 
-/* Self-hosted fonts */
-@font-face {
-  font-family: 'Dallas PS';
-  src: url('./fonts/DallasPS-SansReg.otf') format('opentype');
-  font-weight: 400 600;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Dallas PS';
-  src: url('./fonts/DallasPS-SansBld.otf') format('opentype');
-  font-weight: 700 900;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Brittania';
-  src: url('./fonts/Britania Letter.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-}
-
 @theme {
   --color-brand-navy: #192F4D;
   --color-brand-cream: #F4F1EA;
@@ -28,7 +8,7 @@
   --color-brand-gold-hover: #C58B30;
   
   --font-family-primary: 'Dallas PS', sans-serif;
-  --font-family-secondary: 'Dallas PS', sans-serif;
+  --font-family-secondary: 'Josefin Slab', serif;
   --font-family-accent: 'Brittania', cursive;
 }
 
@@ -46,7 +26,7 @@
   --surface-card: #FFFFFF;
   
   --font-primary: 'Dallas PS', sans-serif;
-  --font-secondary: 'Dallas PS', sans-serif;
+  --font-secondary: 'Josefin Slab', serif;
   --font-accent: 'Brittania', cursive;
 }
 
@@ -61,7 +41,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Dallas PS', sans-serif;
+  font-family: 'Josefin Slab', serif;
   font-weight: 700;
 }
 
@@ -125,7 +105,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .nav-link {
-  font-family: 'Dallas PS', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 700;
   font-size: 1.1rem;
   color: var(--brand-navy);
@@ -216,7 +196,7 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .hero-quote {
   color: var(--text-secondary);
-  font-family: 'Dallas PS', sans-serif;
+  font-family: 'Josefin Slab', serif;
   font-weight: 500;
   font-style: italic;
   max-width: 28rem;
@@ -379,7 +359,7 @@ input[type="number"]::-webkit-inner-spin-button {
   padding: 0.5rem 2rem 0.5rem 0.75rem;
   font-family: 'Dallas PS', sans-serif;
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1.125rem;
   color: var(--brand-navy);
   transition: all 0.2s;
   outline: none;
@@ -627,9 +607,7 @@ input[type="number"]::-webkit-inner-spin-button {
   position: fixed;
   bottom: 0;
   left: 0;
-  right: 0;
   width: 100%;
-  box-sizing: border-box;
   background-color: var(--surface-card);
   border-top: 1px solid var(--border);
   box-shadow: 0 -4px 16px rgba(25, 47, 77, 0.1);
@@ -712,14 +690,14 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .badge-year-small {
-  font-family: 'Dallas PS', sans-serif;
+  font-family: 'Brittania', cursive;
   font-size: 0.5rem;
   color: var(--brand-navy);
   line-height: 1;
 }
 
 .badge-year-large {
-  font-family: 'Dallas PS', sans-serif;
+  font-family: 'Brittania', cursive;
   font-size: 1.25rem;
   color: var(--brand-navy);
   line-height: 1;
@@ -763,7 +741,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .analysis-note {
-  font-family: 'Dallas PS', sans-serif;
+  font-family: 'Josefin Slab', serif;
   font-style: italic;
   font-size: 0.8rem;
   color: var(--text-muted);

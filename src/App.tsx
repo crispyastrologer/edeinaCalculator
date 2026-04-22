@@ -29,7 +29,6 @@ function App() {
 
   const doughCalc = useDoughCalculator(showPrices, currency)
 
-  // Load recipe from URL on mount
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
     const recipe = params.get('r')
@@ -37,7 +36,7 @@ function App() {
       const ok = doughCalc.loadFromURL(recipe)
       if (ok) showToast('Recipe loaded from shared link')
     }
-  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [])
 
   const currencySymbols: Record<string, string> = {
     GBP: '£',
@@ -64,9 +63,11 @@ function App() {
         i: item.ingredients.map(ing => ({ n: ing.name, w: ing.weight, p: ing.pricePerKg }))
       }))
     }
-    // Compact: remove zero prices, use short keys
     const json = JSON.stringify(state)
     const encoded = btoa(unescape(encodeURIComponent(json)))
+      .replace(/\+/g, '-')
+      .replace(/\//g, '_')
+      .replace(/=+$/, '')
     const url = `${window.location.origin}${window.location.pathname}?r=${encoded}`
     navigator.clipboard.writeText(url)
     setShareDropdownOpen(false)
@@ -111,7 +112,7 @@ function App() {
       <header className="top-nav">
         <div className="top-nav-inner">
           <div className="nav-logo">
-            <img src="./EDEINA_vector_horizontal.svg" alt="EDEINA" />
+            <img src="/EDEINA_vector_horizontal.svg" alt="EDEINA" />
           </div>
           <nav className="nav-links">
             <span className={`nav-link ${activeTab === 'dough' ? 'active' : ''}`} onClick={() => setActiveTab('dough')}>Dough</span>
@@ -145,7 +146,6 @@ function App() {
               {activeTab === 'toppings' && 'Toppings'}
               {activeTab === 'summary' && 'Summary'}
             </h2>
-            
           </div>
           <div className="action-row">
             <div style={{ position: 'relative' }}>

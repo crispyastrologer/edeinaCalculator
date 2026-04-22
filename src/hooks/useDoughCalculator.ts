@@ -455,7 +455,11 @@ const totalToppingCost = menuItems.reduce((sum, item) => sum + getMenuItemCost(i
     },
     loadFromURL: (encoded: string) => {
       try {
-        const json = decodeURIComponent(atob(encoded))
+        // Reverse URL-safe base64 (handle both new url-safe and legacy + / = encodings)
+        let b64 = encoded.replace(/-/g, '+').replace(/_/g, '/')
+        const pad = b64.length % 4
+        if (pad) b64 += '='.repeat(4 - pad)
+        const json = decodeURIComponent(escape(atob(b64)))
         const state = JSON.parse(json)
         if (state.i) {
           setIngredients(state.i.map((ing: any, idx: number) => ({
@@ -501,8 +505,7 @@ const totalToppingCost = menuItems.reduce((sum, item) => sum + getMenuItemCost(i
             return updated
           })
         }
-        // Clean URL after loading
-        window.history.replaceState({}, '', window.location.pathname)
+        // Keep the ?r= param in the URL so reloads & bookmarks restore the recipe
         return true
       } catch {
         return false

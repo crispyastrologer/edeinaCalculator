@@ -7,9 +7,9 @@
   --color-brand-gold: #D9A043;
   --color-brand-gold-hover: #C58B30;
   
-  --font-family-primary: 'Dallas PS', sans-serif;
+  --font-family-primary: 'Plus Jakarta Sans', sans-serif;
   --font-family-secondary: 'Josefin Slab', serif;
-  --font-family-accent: 'Brittania', cursive;
+  --font-family-accent: 'Noto Serif', serif;
 }
 
 :root {
@@ -25,13 +25,13 @@
   --surface: #F4F1EA;
   --surface-card: #FFFFFF;
   
-  --font-primary: 'Dallas PS', sans-serif;
+  --font-primary: 'Plus Jakarta Sans', sans-serif;
   --font-secondary: 'Josefin Slab', serif;
-  --font-accent: 'Brittania', cursive;
+  --font-accent: 'Noto Serif', serif;
 }
 
 body {
-  font-family: 'Dallas PS', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   background-color: var(--brand-cream);
   color: var(--text-primary);
@@ -176,7 +176,7 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .hero-badge {
   color: var(--brand-gold);
-  font-family: 'Dallas PS', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 700;
   letter-spacing: 0.25em;
   text-transform: uppercase;
@@ -184,7 +184,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .hero-title {
-  font-family: 'Dallas PS', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: 900;
   color: var(--brand-navy);
@@ -222,7 +222,7 @@ input[type="number"]::-webkit-inner-spin-button {
   border: 1px solid var(--border);
   transition: all 0.2s;
   cursor: pointer;
-  font-family: 'Dallas PS', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 600;
   font-size: 0.875rem;
   color: var(--brand-navy);
@@ -291,7 +291,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .card-title {
-  font-family: 'Dallas PS', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 1rem;
   font-weight: 700;
   color: var(--brand-gold);
@@ -329,14 +329,14 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .ingredient-name {
-  font-family: 'Dallas PS', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 700;
   font-size: 1rem;
   color: var(--brand-navy);
 }
 
 .ingredient-sublabel {
-  font-family: 'Dallas PS', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.65rem;
   color: var(--text-muted);
   text-transform: uppercase;
@@ -357,7 +357,7 @@ input[type="number"]::-webkit-inner-spin-button {
   border-radius: 0.25rem;
   text-align: right;
   padding: 0.5rem 2rem 0.5rem 0.75rem;
-  font-family: 'Dallas PS', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 700;
   font-size: 1.125rem;
   color: var(--brand-navy);
@@ -374,7 +374,7 @@ input[type="number"]::-webkit-inner-spin-button {
 .ingredient-unit {
   position: absolute;
   right: 0.5rem;
-  font-family: 'Dallas PS', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.8rem;
   font-weight: 600;
   color: var(--text-muted);
@@ -397,7 +397,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .total-card-badge {
-  font-family: 'Dallas PS', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 0.3em;
@@ -408,7 +408,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .total-card-title {
-  font-family: 'Dallas PS', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 1rem;
   font-weight: 700;
   color: white;
@@ -420,7 +420,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .total-card-number {
-  font-family: 'Dallas PS', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 2.25rem;
   font-weight: 900;
   color: white;
@@ -434,7 +434,7 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .total-card-sub {
   color: var(--brand-gold);
-  font-family: 'Dallas PS', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.7rem;
   font-weight: 700;
   margin-top: 0.25rem;
@@ -456,7 +456,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .batch-card-title {
-  font-family: 'Dallas PS', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.9rem;
   font-weight: 700;
   color: var(--brand-gold);
@@ -481,7 +481,7 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .batch-control-label {
   display: block;
-  font-family: 'Dallas PS', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.65rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -524,7 +524,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .batch-number {
-  font-family: 'Dallas PS', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 1.75rem;
   font-weight: 900;
   color: var(--brand-navy);
@@ -537,7 +537,7 @@ input[type="number"]::-webkit-inner-spin-button {
 .batch-input {
   width: 100%;
   background: transparent;
-  font-family: 'Dallas PS', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 700;
   font-size: 1.25rem;
   color: var(--brand-navy);
@@ -555,7 +555,7 @@ input[type="number"]::-webkit-inner-spin-button {
   position: absolute;
   right: 0;
   top: 0.5rem;
-  font-family: 'Dallas PS', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 600;
   font-size: 0.8rem;
   color: var(--text-muted);
@@ -586,14 +586,14 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .batch-split-title {
-  font-family: 'Dallas PS', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.8rem;
   font-weight: 700;
   color: var(--brand-navy);
 }
 
 .batch-split-sub {
-  font-family: 'Dallas PS', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.7rem;
   color: var(--text-muted);
 }
@@ -644,7 +644,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .mobile-nav-link span {
-  font-family: 'Dallas PS', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.55rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -711,7 +711,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .badge-label {
-  font-family: 'Dallas PS', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.35rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -734,7 +734,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .analysis-stat {
-  font-family: 'Dallas PS', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--brand-navy);
@@ -759,7 +759,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .total-cost {
-  font-family: 'Dallas PS', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 1.125rem;
   font-weight: 900;
   color: var(--brand-navy);

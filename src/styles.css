@@ -1,0 +1,1326 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system definition.
+ *
+ * The @theme inline block maps CSS custom properties to Tailwind utility
+ * classes (e.g. --color-primary -> bg-primary, text-primary).
+ *
+ * The :root and .dark blocks define the actual color values using oklch.
+ * All colors MUST use oklch format.
+ *
+ * To add a new semantic color:
+ * 1. Add the variable to :root (light value) and .dark (dark value)
+ * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.129 0.042 264.695);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.129 0.042 264.695);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.129 0.042 264.695);
+  --primary: oklch(0.208 0.042 265.755);
+  --primary-foreground: oklch(0.984 0.003 247.858);
+  --secondary: oklch(0.968 0.007 247.896);
+  --secondary-foreground: oklch(0.208 0.042 265.755);
+  --muted: oklch(0.968 0.007 247.896);
+  --muted-foreground: oklch(0.554 0.046 257.417);
+  --accent: oklch(0.968 0.007 247.896);
+  --accent-foreground: oklch(0.208 0.042 265.755);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(0.929 0.013 255.508);
+  --input: oklch(0.929 0.013 255.508);
+  --ring: oklch(0.704 0.04 256.788);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.984 0.003 247.858);
+  --sidebar-foreground: oklch(0.129 0.042 264.695);
+  --sidebar-primary: oklch(0.208 0.042 265.755);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.968 0.007 247.896);
+  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
+  --sidebar-border: oklch(0.929 0.013 255.508);
+  --sidebar-ring: oklch(0.704 0.04 256.788);
+}
+
+.dark {
+  --background: oklch(0.129 0.042 264.695);
+  --foreground: oklch(0.984 0.003 247.858);
+  --card: oklch(0.208 0.042 265.755);
+  --card-foreground: oklch(0.984 0.003 247.858);
+  --popover: oklch(0.208 0.042 265.755);
+  --popover-foreground: oklch(0.984 0.003 247.858);
+  --primary: oklch(0.929 0.013 255.508);
+  --primary-foreground: oklch(0.208 0.042 265.755);
+  --secondary: oklch(0.279 0.041 260.031);
+  --secondary-foreground: oklch(0.984 0.003 247.858);
+  --muted: oklch(0.279 0.041 260.031);
+  --muted-foreground: oklch(0.704 0.04 256.788);
+  --accent: oklch(0.279 0.041 260.031);
+  --accent-foreground: oklch(0.984 0.003 247.858);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.551 0.027 264.364);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.208 0.042 265.755);
+  --sidebar-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.279 0.041 260.031);
+  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.551 0.027 264.364);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+}
+
+@font-face {
+  font-family: 'Dallas PS';
+  src: url('./fonts/DallasPS-SansReg.otf') format('opentype');
+  font-weight: 400 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Dallas PS';
+  src: url('./fonts/DallasPS-SansBld.otf') format('opentype');
+  font-weight: 700 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Brittania';
+  src: url('./fonts/Britania-Letter.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+.nav-brand {
+  font-family: 'Dallas PS', sans-serif;
+  font-weight: 900;
+  font-size: 1.5rem;
+  letter-spacing: 0.15em;
+  color: var(--brand-navy);
+  text-transform: uppercase;
+}
+
+:root {
+  --brand-navy: #192F4D;
+  --brand-cream: #F4F1EA;
+  --brand-white: #FFFFFF;
+  --brand-gold: #D9A043;
+  --brand-gold-hover: #C58B30;
+  --text-primary: #192F4D;
+  --text-secondary: #4A5B73;
+  --text-muted: #74777E;
+  --border: #E0DDD6;
+  --surface: #F4F1EA;
+  --surface-card: #FFFFFF;
+  
+  --font-primary: 'Dallas PS', sans-serif;
+  --font-secondary: 'Dallas PS', sans-serif;
+  --font-accent: 'Brittania', cursive;
+}
+
+body {
+  font-family: 'Dallas PS', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background-color: var(--brand-cream);
+  color: var(--text-primary);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Dallas PS', sans-serif;
+  font-weight: 700;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  -webkit-appearance: textfield;
+  appearance: textfield;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Top Navigation - No fixed, just flowing */
+.top-nav {
+  width: 100%;
+  max-width: 80rem;
+  margin: 0 auto;
+  z-index: 50;
+  background-color: transparent;
+  border-bottom: none;
+  box-shadow: none;
+  padding: 1rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .top-nav {
+    padding: 1rem 2rem;
+  }
+}
+
+.top-nav-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo img {
+  height: 70px;
+  width: auto;
+}
+
+.nav-links {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  }
+}
+
+.nav-link {
+  font-family: 'Dallas PS', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--brand-navy);
+  transition: all 0.3s;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+}
+
+.nav-link:hover {
+  color: var(--brand-gold);
+  opacity: 1;
+}
+
+.nav-link.active {
+  color: var(--brand-gold);
+  opacity: 1;
+  font-weight: 700;
+}
+
+.nav-links button:hover {
+  background: #D9A043;
+  opacity: 0.9;
+}
+
+.nav-links button:hover span {
+  color: #192F4D;
+}
+
+.nav-divider {
+  display: none;
+}
+
+/* Main Content */
+.main-content {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1.5rem 6rem;
+}
+
+@media (min-width: 768px) {
+  .main-content {
+    padding: 1rem 2rem 6rem;
+  }
+}
+
+/* Hero Section */
+.hero-section {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 80rem;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .hero-section {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 3rem 0;
+  }
+}
+
+.hero-badge {
+  color: var(--brand-gold);
+  font-family: 'Dallas PS', sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+.hero-title {
+  font-family: 'Dallas PS', sans-serif;
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 900;
+  color: var(--brand-navy);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin: 0.5rem 0;
+  text-transform: uppercase;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: none;
+}
+
+.hero-quote {
+  color: var(--text-secondary);
+  font-family: 'Dallas PS', sans-serif;
+  font-weight: 500;
+  font-style: italic;
+  max-width: 28rem;
+  font-size: 1rem;
+}
+
+/* Action Buttons Row */
+.action-row {
+  display: flex;
+  gap: 0.375rem;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+@media (max-width: 640px) {
+  .action-row {
+    flex-wrap: nowrap;
+    gap: 0.25rem;
+  }
+  .action-row .action-btn {
+    padding: 0.4rem 0.5rem;
+    gap: 0.2rem;
+    flex: 1 1 0;
+    min-width: 0;
+    justify-content: center;
+  }
+  .action-row .action-btn > span:not(.material-symbols-outlined) {
+    font-size: 0.65rem;
+  }
+  .action-row .action-btn .material-symbols-outlined {
+    font-size: 1rem;
+  }
+}
+
+/* Subtle range slider matching brand */
+.brand-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(to right, var(--brand-gold) 0%, var(--brand-gold) var(--val, 50%), rgba(25,47,77,0.12) var(--val, 50%), rgba(25,47,77,0.12) 100%);
+  outline: none;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+.brand-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--brand-navy);
+  border: 2px solid var(--brand-gold);
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+.brand-slider::-webkit-slider-thumb:hover { transform: scale(1.15); }
+.brand-slider::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--brand-navy);
+  border: 2px solid var(--brand-gold);
+  cursor: pointer;
+}
+.dark .brand-slider {
+  background: linear-gradient(to right, var(--brand-gold) 0%, var(--brand-gold) var(--val, 50%), rgba(255,255,255,0.08) var(--val, 50%), rgba(255,255,255,0.08) 100%);
+}
+.dark .brand-slider::-webkit-slider-thumb,
+.dark .brand-slider::-moz-range-thumb {
+  background: var(--surface-card);
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  background-color: white;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  white-space: nowrap;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  border: 1px solid var(--border);
+  transition: all 0.2s;
+  cursor: pointer;
+  font-family: 'Dallas PS', sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--brand-navy);
+}
+
+.action-btn > span:not(.material-symbols-outlined) {
+  font-size: 0.75rem;
+}
+
+.action-btn:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.12);
+  transform: translateY(-1px);
+}
+
+.action-btn .material-symbols-outlined {
+  color: var(--brand-navy);
+  font-size: 1.25rem;
+}
+
+.action-btn-primary {
+  background-color: var(--brand-navy);
+  color: white;
+  border-color: var(--brand-navy);
+}
+
+.action-btn-primary .material-symbols-outlined {
+  color: white;
+}
+
+.action-btn-pricing {
+  background-color: var(--brand-gold);
+  color: var(--brand-navy);
+  border-color: var(--brand-gold);
+}
+
+.action-btn-pricing .material-symbols-outlined {
+  color: var(--brand-navy);
+}
+
+.action-btn-pricing.active {
+  background-color: var(--brand-navy);
+  color: var(--brand-gold);
+  border-color: var(--brand-navy);
+}
+
+.action-btn-pricing.active .material-symbols-outlined {
+  color: var(--brand-gold);
+}
+
+/* Content Grid */
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+/* Mobile: Batch Configuration first, then Base Recipe, then Recipe summary */
+.content-grid .recipe-col { order: 2; }
+.content-grid .batch-col { order: 1; }
+.content-grid .recipe-summary-full { order: 3; }
+
+@media (min-width: 768px) {
+  .content-grid {
+    grid-template-columns: 7fr 5fr;
+  }
+  .content-grid .recipe-col { order: 1; grid-column: 1; }
+  .content-grid .batch-col { order: 2; grid-column: 2; }
+  .content-grid .recipe-summary-full { order: 3; grid-column: 1 / -1; }
+}
+
+/* Cards */
+.ingredient-card {
+  background-color: var(--surface-card);
+  border-radius: 1rem;
+  padding: 2rem;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 12px rgba(25, 47, 77, 0.08);
+}
+
+.card-title {
+  font-family: 'Dallas PS', sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--brand-gold);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.card-title-line {
+  height: 3px;
+  width: 2rem;
+  background-color: var(--brand-gold);
+  border-radius: 2px;
+}
+
+/* Ingredient Rows */
+.ingredient-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.875rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.ingredient-row:last-child {
+  border-bottom: none;
+}
+
+.ingredient-label {
+  display: flex;
+  flex-direction: column;
+}
+
+.ingredient-name {
+  font-family: 'Dallas PS', sans-serif;
+  font-weight: 300;
+  font-size: 0.875rem;
+  color: var(--brand-navy);
+}
+
+.ingredient-sublabel {
+  font-family: 'Dallas PS', sans-serif;
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+}
+
+.ingredient-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.ingredient-input {
+  width: 6rem;
+  background: #F4F1EA;
+  border: 1px solid var(--border);
+  border-radius: 0.25rem;
+  text-align: right;
+  padding: 0.5rem 2rem 0.5rem 0.75rem;
+  font-family: 'Dallas PS', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--brand-navy);
+  transition: all 0.2s;
+  outline: none;
+}
+
+.ingredient-input:focus {
+  border-color: var(--brand-gold);
+  box-shadow: 0 0 0 2px rgba(217, 160, 67, 0.2);
+  background: white;
+}
+
+.ingredient-unit {
+  position: absolute;
+  right: 0.5rem;
+  font-family: 'Dallas PS', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+/* Total Dough Card */
+.total-card {
+  background-color: var(--brand-navy);
+  border-radius: 1rem;
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 8px 20px rgba(25, 47, 77, 0.25);
+  margin-top: 1.5rem;
+}
+
+.total-card-label {
+  color: white;
+}
+
+.total-card-badge {
+  font-family: 'Dallas PS', sans-serif;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-weight: 700;
+  color: var(--brand-gold);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.total-card-title {
+  font-family: 'Dallas PS', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+}
+
+.total-card-value {
+  text-align: right;
+}
+
+.total-card-number {
+  font-family: 'Dallas PS', sans-serif;
+  font-size: 2.25rem;
+  font-weight: 900;
+  color: white;
+}
+
+.total-card-number span {
+  font-size: 1rem;
+  font-weight: 400;
+  opacity: 0.6;
+}
+
+.total-card-sub {
+  color: var(--brand-gold);
+  font-family: 'Dallas PS', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  margin-top: 0.25rem;
+}
+
+/* Sidebar */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.batch-card {
+  background-color: var(--surface-card);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 12px rgba(25, 47, 77, 0.08);
+}
+
+.batch-card-title {
+  font-family: 'Dallas PS', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--brand-gold);
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.batch-card-title .material-symbols-outlined {
+  color: var(--brand-gold);
+}
+
+.batch-control {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--brand-cream);
+  margin-bottom: 0.75rem;
+}
+
+.batch-control-label {
+  display: block;
+  font-family: 'Dallas PS', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.batch-number-display {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.batch-btn {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 9999px;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.batch-btn:hover {
+  background-color: var(--brand-gold);
+  border-color: var(--brand-gold);
+}
+
+.batch-btn:hover .material-symbols-outlined {
+  color: white;
+}
+
+.batch-btn .material-symbols-outlined {
+  color: var(--brand-navy);
+  font-size: 1.125rem;
+}
+
+.batch-number {
+  font-family: 'Dallas PS', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: var(--brand-navy);
+}
+
+.batch-input-wrapper {
+  position: relative;
+}
+
+.batch-input {
+  width: 100%;
+  background: transparent;
+  font-family: 'Dallas PS', sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--brand-navy);
+  outline: none;
+  padding: 0.25rem 2rem 0.25rem 0;
+  border: none;
+  border-bottom: 2px solid var(--border);
+}
+
+.batch-input:focus {
+  border-color: var(--brand-gold);
+}
+
+.batch-input-unit {
+  position: absolute;
+  right: 0;
+  top: 0.5rem;
+  font-family: 'Dallas PS', sans-serif;
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.batch-split {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem;
+  background-color: rgba(217, 160, 67, 0.1);
+  border: 1px solid var(--brand-gold);
+  border-radius: 0.5rem;
+}
+
+.batch-split-icon {
+  background-color: var(--brand-gold);
+  color: var(--brand-navy);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.batch-split-icon .material-symbols-outlined {
+  font-size: 1rem;
+}
+
+.batch-split-title {
+  font-family: 'Dallas PS', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--brand-navy);
+}
+
+.batch-split-sub {
+  font-family: 'Dallas PS', sans-serif;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+/* Mobile Bottom Nav */
+.mobile-nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.75rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: var(--surface-card);
+  border-top: 1px solid var(--border);
+  box-shadow: 0 -4px 16px rgba(25, 47, 77, 0.1);
+  z-index: 50;
+  border-radius: 1rem 1rem 0 0;
+}
+
+@media (min-width: 768px) {
+  .mobile-nav {
+    display: none;
+  }
+}
+
+.mobile-nav-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  color: var(--brand-navy);
+  opacity: 0.5;
+  text-decoration: none;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.mobile-nav-link.active {
+  color: var(--brand-gold);
+  opacity: 1;
+}
+
+.mobile-nav-link .material-symbols-outlined {
+  font-size: 1.5rem;
+}
+
+.mobile-nav-link span:not(.material-symbols-outlined) {
+  font-family: 'Dallas PS', sans-serif;
+  font-size: 0.55rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.25rem;
+}
+
+/* Floating Badge */
+.floating-badge {
+  position: fixed;
+  bottom: 5rem;
+  right: 1.5rem;
+  z-index: 40;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .floating-badge {
+    display: flex;
+    bottom: 2rem;
+  }
+}
+
+.badge-circle {
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 9999px;
+  background-color: var(--brand-gold);
+  box-shadow: 0 6px 16px rgba(217, 160, 67, 0.4);
+  border: 2px solid var(--brand-navy);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transform: rotate(12deg);
+  transition: transform 0.3s;
+  cursor: default;
+}
+
+.badge-circle:hover {
+  transform: rotate(0deg);
+}
+
+.badge-year-small {
+  font-family: 'Dallas PS', sans-serif;
+  font-size: 0.5rem;
+  color: var(--brand-navy);
+  line-height: 1;
+}
+
+.badge-year-large {
+  font-family: 'Dallas PS', sans-serif;
+  font-size: 1.25rem;
+  color: var(--brand-navy);
+  line-height: 1;
+}
+
+.badge-divider {
+  width: 1.25rem;
+  height: 1px;
+  background-color: var(--brand-navy);
+  margin: 0.125rem 0;
+}
+
+.badge-label {
+  font-family: 'Dallas PS', sans-serif;
+  font-size: 0.35rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--brand-navy);
+}
+
+/* Analysis Card */
+.analysis-card {
+  background-color: var(--brand-cream);
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.analysis-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.analysis-stat {
+  font-family: 'Dallas PS', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--brand-navy);
+}
+
+.analysis-note {
+  font-family: 'Dallas PS', sans-serif;
+  font-style: italic;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 0.75rem;
+}
+
+/* Pricing */
+.pricing-section {
+  margin-top: 1.5rem;
+}
+
+.price-input {
+  width: 4.5rem !important;
+  font-size: 0.9rem !important;
+}
+
+.total-cost {
+  font-family: 'Dallas PS', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 900;
+  color: var(--brand-navy);
+}
+
+/* Print button specific */
+.print-btn {
+  background-color: var(--brand-gold);
+  color: var(--brand-navy);
+  border-color: var(--brand-gold);
+}
+
+.print-btn:hover {
+  background-color: var(--brand-gold-hover);
+}
+
+/* Print Styles */
+@media print {
+  * {
+    font-size: 10pt !important;
+    line-height: 1.3 !important;
+  }
+
+  body {
+    background: white !important;
+    margin: 0 !important;
+    padding: 0.5cm !important;
+  }
+  
+  .top-nav,
+  .mobile-nav,
+  .action-row,
+  .hero-section,
+  .sidebar,
+  .batch-card,
+  .hero-badge,
+  .hero-quote,
+  .content-grid,
+  .ingredient-card,
+  .analysis-card,
+  .batch-control,
+  .batch-number-display,
+  .print-hide {
+    display: none !important;
+  }
+
+  .main-content {
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+  
+  /* Summary container */
+  .main-content > div {
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .main-content > div > div {
+    box-shadow: none !important;
+    border: 1px solid #192F4D !important;
+    background: white !important;
+    padding: 0.75rem !important;
+    border-radius: 4px !important;
+  }
+
+  h3 {
+    font-size: 14pt !important;
+    margin-bottom: 0.4rem !important;
+  }
+
+  h4 {
+    font-size: 8pt !important;
+    margin-bottom: 0.25rem !important;
+  }
+
+  p {
+    font-size: 10pt !important;
+    margin: 0 !important;
+  }
+
+  table {
+    font-size: 9pt !important;
+  }
+
+  table th, table td {
+    padding: 4px 8px !important;
+  }
+
+  /* Tighter spacing on grid cards */
+  div[style*="grid"] {
+    gap: 0.25rem !important;
+  }
+
+  div[style*="grid"] > div {
+    padding: 0.3rem 0.5rem !important;
+  }
+
+  /* Production overview cards */
+  div[style*="display: flex"][style*="gap: 0.5rem"] > div {
+    padding: 0.3rem 0.5rem !important;
+  }
+
+  /* Grand total bar */
+  div[style*="background: #192F4D"][style*="borderRadius"] {
+    padding: 0.5rem 0.75rem !important;
+  }
+
+  /* Section borders */
+  div[style*="borderTop: 2px"] {
+    padding-top: 0.5rem !important;
+    margin-top: 0.5rem !important;
+  }
+}
+
+/* Dark Mode — layered navy palette built from brand navy #192F4D */
+.dark {
+  --brand-cream: #0E1A2C;          /* deepest navy - app bg */
+  --brand-navy: #E8EEF7;           /* inverted: light text role */
+  --brand-white: #1B2C46;          /* card surface */
+  --brand-gold: #E0B25A;
+  --brand-gold-hover: #F0C672;
+  --text-primary: #EAF0FA;
+  --text-secondary: #A9B7CC;
+  --text-muted: #7A8699;
+  --border: #2A4068;
+  --surface: #0E1A2C;              /* app background */
+  --surface-elevated: #16253D;     /* one level up */
+  --surface-card: #1B2C46;         /* cards */
+  --surface-input: #0F1C30;        /* inputs */
+}
+
+.dark body,
+.dark .min-h-screen {
+  background-color: var(--surface);
+  color: var(--text-primary);
+  background-image:
+    radial-gradient(ellipse at top left, rgba(217, 160, 67, 0.08), transparent 55%),
+    radial-gradient(ellipse at bottom right, rgba(56, 96, 156, 0.18), transparent 55%);
+}
+
+.dark .top-nav {
+  background-color: transparent !important;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom: none;
+}
+
+.dark .bg-brand-cream,
+.dark .bg-\[\#F4F1EA\] {
+  background-color: transparent !important;
+}
+
+.dark .ingredient-card,
+.dark .batch-card,
+.dark .recipe-box,
+.dark .total-card {
+  background-color: var(--surface-card);
+  border-color: var(--border);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 10px 30px -18px rgba(0, 0, 0, 0.7);
+}
+
+.dark .ingredient-card:hover,
+.dark .batch-card:hover {
+  border-color: rgba(224, 178, 90, 0.4);
+}
+
+.dark .ingredient-card h3,
+.dark .batch-card h3,
+.dark .card-title,
+.dark .batch-card-title {
+  color: var(--brand-gold);
+}
+
+.dark .ingredient-input,
+.dark .batch-input,
+.dark .batch-number,
+.dark input,
+.dark select,
+.dark textarea {
+  background-color: var(--surface-input);
+  color: var(--text-primary);
+  border-color: var(--border);
+}
+
+.dark .ingredient-input:focus,
+.dark .batch-input:focus,
+.dark input:focus,
+.dark select:focus,
+.dark textarea:focus {
+  border-color: var(--brand-gold);
+  outline: none;
+}
+
+.dark .nav-link {
+  color: var(--text-secondary);
+}
+
+.dark .nav-link:hover {
+  color: var(--brand-gold);
+}
+
+.dark .nav-link.active {
+  color: var(--brand-gold);
+}
+
+.dark .nav-brand {
+  color: var(--text-primary);
+}
+
+.dark .hero-title {
+  color: var(--text-primary);
+}
+
+.dark .hero-quote {
+  color: var(--text-secondary);
+}
+
+.dark .hero-badge {
+  color: var(--brand-gold);
+}
+
+.dark .action-btn {
+  background-color: transparent;
+  border-color: var(--border);
+  color: var(--text-secondary);
+}
+
+.dark .action-btn:hover {
+  background-color: var(--brand-gold);
+  border-color: var(--brand-gold);
+  color: var(--surface);
+}
+
+.dark .mobile-nav {
+  background-color: rgba(20, 17, 13, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid var(--border);
+}
+
+.dark .mobile-nav-link {
+  color: var(--text-muted);
+}
+
+.dark .mobile-nav-link.active {
+  color: var(--brand-gold);
+}
+
+.dark .ingredient-name,
+.dark .batch-split-title {
+  color: var(--text-primary);
+}
+
+.dark .ingredient-sublabel,
+.dark .ingredient-unit,
+.dark .batch-input-unit,
+.dark .batch-control-label,
+.dark .batch-split-sub,
+.dark .total-card-sub {
+  color: var(--text-muted);
+}
+
+.dark .total-card-number,
+.dark .batch-number {
+  color: var(--brand-gold);
+}
+
+.dark .total-card-badge {
+  background-color: rgba(224, 178, 90, 0.12);
+  color: var(--brand-gold);
+}
+
+.dark .badge-year-small,
+.dark .badge-year-large,
+.dark .badge-label {
+  color: var(--brand-gold);
+}
+
+.dark .print-btn {
+  background-color: var(--brand-gold);
+  color: var(--surface);
+}
+
+.dark .print-btn:hover {
+  background-color: var(--brand-gold-hover);
+}
+
+.dark hr,
+.dark .divider {
+  border-color: var(--border);
+}
+
+/* Dark mode: invert EDEINA logo SVG to white */
+.dark img.nav-brand {
+  filter: brightness(0) invert(1);
+}
+
+/* Dark mode: recipe summary card */
+.dark .recipe-summary-card {
+  background-color: var(--surface-elevated) !important;
+  border-color: var(--brand-gold) !important;
+  box-shadow: 4px 4px 0 var(--brand-gold) !important;
+  color: var(--text-primary);
+}
+
+.dark .recipe-summary-card h3,
+.dark .recipe-summary-card span,
+.dark .recipe-summary-card strong {
+  color: var(--text-primary) !important;
+}
+
+.dark .recipe-summary-card span[style*="background: rgb(255, 255, 255)"],
+.dark .recipe-summary-card span[style*="background:#fff"] {
+  background-color: var(--surface) !important;
+  border-color: var(--border) !important;
+  color: var(--text-secondary) !important;
+}
+
+/* Toast animation */
+@keyframes toast-in {
+  from { opacity: 0; transform: translateX(-50%) translateY(1rem); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}

@@ -1,4 +1,5 @@
 import { useState, useCallback, useMemo } from 'react'
+import LZString from 'lz-string'
 
 export type IngredientType = 'flour' | 'liquid' | 'salt' | 'fat' | 'extras'
 
@@ -44,6 +45,7 @@ export interface MenuItem {
   icon: string
   numServings: number
   ingredients: ToppingIngredient[]
+  isDoughTopping?: boolean
 }
 
 const DEFAULT_MENU_ITEMS: MenuItem[] = [
@@ -52,6 +54,7 @@ const DEFAULT_MENU_ITEMS: MenuItem[] = [
     name: "Za'atar",
     icon: 'grass',
     numServings: 2,
+    isDoughTopping: true,
     ingredients: [
       { id: '1', name: "Za'atar Blend", weight: 100, pricePerKg: 25 },
       { id: '2', name: 'Extra Sumac', weight: 10, pricePerKg: 15 },
@@ -64,6 +67,7 @@ const DEFAULT_MENU_ITEMS: MenuItem[] = [
     name: 'Cheese',
     icon: 'egg_alt',
     numServings: 2,
+    isDoughTopping: true,
     ingredients: [
       { id: '1', name: 'Akawi', weight: 320, pricePerKg: 9 },
       { id: '2', name: 'Mozzarella', weight: 240, pricePerKg: 6 },
@@ -75,6 +79,7 @@ const DEFAULT_MENU_ITEMS: MenuItem[] = [
     name: 'Meat',
     icon: 'restaurant',
     numServings: 2,
+    isDoughTopping: true,
     ingredients: [
       { id: '1', name: 'Ground Beef/Lamb', weight: 400, pricePerKg: 7.5 },
       { id: '2', name: 'Onion', weight: 160, pricePerKg: 0.75 },
@@ -91,6 +96,7 @@ const DEFAULT_MENU_ITEMS: MenuItem[] = [
     name: 'Pizza',
     icon: 'local_pizza',
     numServings: 2,
+    isDoughTopping: true,
     ingredients: [
       { id: '1', name: 'Tomato Sauce', weight: 200, pricePerKg: 3 },
       { id: '2', name: 'Mozzarella', weight: 320, pricePerKg: 6 },
@@ -159,10 +165,20 @@ export function useDoughCalculator(showPrices: boolean, currency: 'GBP' | 'USD' 
   }
 
   // Update menu item name/icon
-  const updateMenuItem = (id: string, field: keyof MenuItem, value: string | number) => {
+  const updateMenuItem = (id: string, field: keyof MenuItem, value: string | number | boolean) => {
     setMenuItems(prev => prev.map(item => 
       item.id === id ? { ...item, [field]: value } : item
     ))
+  }
+
+  // Toggle Dough Topping tag
+  const toggleMenuItemTag = (id: string) => {
+    setMenuItems(prev => prev.map(item => {
+      if (item.id === id) {
+        return { ...item, isDoughTopping: item.isDoughTopping === undefined ? false : !item.isDoughTopping }
+      }
+      return item
+    }))
   }
 
   // Add ingredient to menu item
@@ -228,8 +244,29 @@ export function useDoughCalculator(showPrices: boolean, currency: 'GBP' | 'USD' 
     }
   }
 
+  // Add menu item from recipe
+  const addMenuItemFromRecipe = (recipe: any) => {
+    const id = Date.now().toString()
+    setMenuItems(prev => [...prev, {
+      id,
+      name: recipe.name,
+      icon: recipe.icon,
+      numServings: recipe.numServings,
+      isDoughTopping: true,
+      ingredients: recipe.ingredients.map((ing: any, idx: number) => ({
+        ...ing,
+        id: `${id}-ing-${idx}-${Date.now()}`
+      }))
+    }])
+    if (!expandedMenuItemIds.includes(id)) {
+      setExpandedMenuItemIds(prev => [...prev, id])
+    }
+  }
+
   // Total toppings calculated
-  const totalToppingServings = menuItems.reduce((sum, item) => sum + item.numServings, 0)
+  const totalToppingServings = menuItems.reduce((sum, item) => {
+    return sum + (item.isDoughTopping !== false ? item.numServings : 0)
+  }, 0)
   const servingsMismatch = totalToppingServings !== numBalls
 
   // Summary calculations
@@ -379,11 +416,13 @@ const totalToppingCost = menuItems.reduce((sum, item) => sum + getMenuItemCost(i
     toggleMenuItem,
     updateMenuItemServings,
     updateMenuItem,
+    toggleMenuItemTag,
     addIngredientToMenuItem,
     updateMenuItemIngredient,
     removeIngredientFromMenuItem,
     removeMenuItem,
     addMenuItem,
+    addMenuItemFromRecipe,
     showAddMenuItemForm,
     setShowAddMenuItemForm,
     newMenuItem,
@@ -395,6 +434,34 @@ const totalToppingCost = menuItems.reduce((sum, item) => sum + getMenuItemCost(i
     totalToppingCost,
     allIngredientsSummary,
     syncMenuItemsServings,
+    // Reorder functions
+    reorderIngredients: (oldIndex: number, newIndex: number) => {
+      setIngredients(prev => {
+        const result = Array.from(prev);
+        const [removed] = result.splice(oldIndex, 1);
+        result.splice(newIndex, 0, removed);
+        return result;
+      });
+    },
+    reorderMenuItems: (oldIndex: number, newIndex: number) => {
+      setMenuItems(prev => {
+        const result = Array.from(prev);
+        const [removed] = result.splice(oldIndex, 1);
+        result.splice(newIndex, 0, removed);
+        return result;
+      });
+    },
+    reorderMenuItemIngredients: (menuItemId: string, oldIndex: number, newIndex: number) => {
+      setMenuItems(prev => prev.map(item => {
+        if (item.id === menuItemId) {
+          const result = Array.from(item.ingredients);
+          const [removed] = result.splice(oldIndex, 1);
+          result.splice(newIndex, 0, removed);
+          return { ...item, ingredients: result };
+        }
+        return item;
+      }));
+    },
     // Save/Load functionality
     saveRecipe: () => {
       const recipe = {
@@ -455,12 +522,21 @@ const totalToppingCost = menuItems.reduce((sum, item) => sum + getMenuItemCost(i
     },
     loadFromURL: (encoded: string) => {
       try {
-        // Reverse URL-safe base64 (handle both new url-safe and legacy + / = encodings)
-        let b64 = encoded.replace(/-/g, '+').replace(/_/g, '/')
-        const pad = b64.length % 4
-        if (pad) b64 += '='.repeat(4 - pad)
-        const json = decodeURIComponent(escape(atob(b64)))
-        const state = JSON.parse(json)
+        let json = '';
+        
+        // Try to decompress with LZString first (new format)
+        const decompressed = LZString.decompressFromEncodedURIComponent(encoded);
+        if (decompressed) {
+          json = decompressed;
+        } else {
+          // Fallback to old base64 format
+          let b64 = encoded.replace(/-/g, '+').replace(/_/g, '/');
+          const pad = b64.length % 4;
+          if (pad) b64 += '='.repeat(4 - pad);
+          json = decodeURIComponent(escape(atob(b64)));
+        }
+
+        const state = JSON.parse(json);
         if (state.i) {
           setIngredients(state.i.map((ing: any, idx: number) => ({
             id: String(idx + 1),
@@ -468,7 +544,7 @@ const totalToppingCost = menuItems.reduce((sum, item) => sum + getMenuItemCost(i
             weight: ing.w,
             type: ing.t || 'extras',
             pricePerKg: ing.p || 0,
-          })))
+          })));
         }
         if (state.b !== undefined) setNumBalls(state.b)
         if (state.bw !== undefined) setBallWeight(state.bw)
